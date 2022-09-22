@@ -19,21 +19,21 @@ class Filehandling extends Operation{
         }
 
     }
-    function filedelete($table,$userid,$id){
-        //$obj = new query();
-        $flag = false;
-        $userdata = $this->getData($table,'*',[$userid=>$id]);
-        $num_rows = $userdata->rowCount();
-        //deleting user files from directory
-        if($num_rows>0){ 
-          while($rows = $userdata->fetch(PDO::FETCH_ASSOC)){
-            $userfile = $rows['filedir'];
-            unlink($userfile);
-            $flag = true;
-          }}
+    // function filedelete($table,$userid,$id){
+    //     //$obj = new query();
+    //     $flag = false;
+    //     $userdata = $this->getData($table,'*',[$userid=>$id]);
+    //     $num_rows = $userdata->rowCount();
+    //     //deleting user files from directory
+    //     if($num_rows>0){ 
+    //       while($rows = $userdata->fetch(PDO::FETCH_ASSOC)){
+    //         $userfile = $rows['filedir'];
+    //         unlink($userfile);
+    //         $flag = true;
+    //       }}
 
-          return $flag;
-    }
+    //       return $flag;
+    // }
 }
 
 

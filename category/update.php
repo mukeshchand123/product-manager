@@ -73,11 +73,7 @@ if($_SERVER ['REQUEST_METHOD'] == 'GET'){
 
 <body>
     <div>
-         <a href="../view/category.php">Category</a>
-         <a href="../view/product.php">Product</a>
-         <a href="add.php">Add Category</a>
-         <a href="fetch.php">View Category</a>
-         <a href="../view/logout.php">Logout</a><br><br>
+    <?php require_once("../view/nav2.php"); ?>
     </div>
    
 <div>

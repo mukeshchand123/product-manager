@@ -59,12 +59,8 @@ if(isset($_POST['create'])){
     <title>Document</title>
 </head>
 <body>
-<div>
-        <a href="../view/category.php">Category</a>
-        <a href="../view/product.php">Product</a>
-        <a href="add.php">Add Product</a>
-        <a href="fetch.php">View Product</a>
-        <a href="../view/logout.php">Logout</a><br><br>
+<div>      
+     <?php require_once("../view/nav3.php"); ?>
 </div>
 <form action="add.php" method="post" enctype="multipart/form-data" >
    

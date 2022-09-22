@@ -5,7 +5,6 @@ class Operation extends Database{
 
     public function insertData($table,$condition=""){
 
-
         if($condition!=""){
           
            foreach($condition as $key=>$val){
@@ -19,9 +18,9 @@ class Operation extends Database{
            $value = "'".$value."'";
            $sql = "INSERT INTO $table ($field) VALUES (:$placeholder)";
            $stmt = $this->pdo->prepare($sql);
-           echo$sql;
-           echo"<pre>";
-           print_r($condition);
+        //    echo$sql;
+        //    echo"<pre>";
+        //    print_r($condition);
            $stmt->execute($condition);
        //return $stmt;
         
@@ -35,12 +34,12 @@ class Operation extends Database{
            }
         
     
-        }else{
-            echo"provide data";
-        }    
+        }  
     }
 
     public function getData($table,$field='*',$condition=""){
+
+      
 
         $sql = "SELECT $field FROM `$table`";
         $data = array();
@@ -71,6 +70,9 @@ class Operation extends Database{
         }
 
         public function deleteData($table,$condition=""){
+            if($this->error){
+                return "Connection Error";
+               }
 
             $sql = "DELETE FROM `$table`";
         
@@ -100,6 +102,7 @@ class Operation extends Database{
 
         public function updateData($table,$condition="",$field,$value){
 
+          
             $sql = "UPDATE `$table`";
         
             if($condition!=""){
@@ -128,6 +131,9 @@ class Operation extends Database{
           
             //funnction for search
 public function searchData($table,$search,$key){
+    if($this->error){
+        return "Connection Error";
+       }
     $sql = "SELECT * FROM `$table` WHERE";
     $c = count($key);
                 $pattern = '%' . $search . '%';

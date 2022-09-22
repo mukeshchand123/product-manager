@@ -5,6 +5,7 @@ class Database{
   private  $password= '';
   private $db_name = 'product-manager';
   protected $pdo = NULL;
+  protected $error = NULL;
  public function __construct(){
     $dsn = "mysql:host=".$this->host.";dbname=".$this->db_name;
     
@@ -15,7 +16,8 @@ class Database{
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         //throw $th;
-        echo "coneection error: ".$e->getMessage();
+        $this->error = $e->getMessage();
+        exit;
     }
   }
    

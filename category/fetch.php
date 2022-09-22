@@ -1,23 +1,16 @@
 <?php
   session_start();
+  
   if(!isset($_SESSION['login']) || $_SESSION['login']!==true){
       header("location:login.php");
       exit;
   }
-  if($_SESSION['flag']==1){
-
-    echo '<script type="text/javascript">
-   
-                 window.onload = function () { alert("Cannot delete category associated with product."); }
-   
-                 </script>';
-                 $_SESSION['flag']=0;             
-  }
-//  require_once('query.php');
   require_once('../class/Operation.php');
   $id = $_SESSION['id'];
   $obj = new operation();
-$result = $obj->getData('category','*',['userid'=>$id]);
+  $result = $obj->getData('category','*',['userid'=>$id]);
+//  require_once('query.php');
+  
 
 
 ?>
@@ -39,11 +32,7 @@ $result = $obj->getData('category','*',['userid'=>$id]);
 
 <div>
 <div>
-<a href="../view/category.php">Category</a>
-         <a href="../view/product.php">Product</a>
-         <a href="add.php">Add Category</a>
-         <a href="fetch.php">View Category</a>
-         <a href="../view/logout.php">Logout</a><br><br>
+     <?php require_once("../view/nav2.php"); ?>
     </div>
 
 </div>

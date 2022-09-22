@@ -8,16 +8,24 @@ header("location:login.php");
 
 
 $id = filter_var($_GET['i'],FILTER_SANITIZE_NUMBER_INT);
-//echo $id;
 
+//$_SESSION['flag'] = 0;
 
 $obj = new operation();
-$result =  $obj->getData('product','*',['id'=>$id]);
-$rows = $result->fetch(PDO::FETCH_ASSOC);
+$result =  $obj->getData('product','*',['userid'=>$id]);
+$num = $result->rowCount();
+//$rows = $result->fetch(PDO::FETCH_ASSOC);
 
-if($rows['id']==$id){
-   $_SESSION['flag']=1;
-    header("location:fetch.php");
+if($num>0){
+
+    echo '<script type="text/javascript">
+   
+                 window.onload = function () { alert("Cannot delete category associated with product."); }
+   
+                 </script>';
+                 
+  // $_SESSION['flag']=1;
+    header("refresh:0.01;url=fetch.php");
     exit;
 }
 
@@ -30,8 +38,6 @@ $result = $obj->deleteData('category',['id'=>$id]);
 if($result!=0){
     header("location:fetch.php");
 }
-}else{
-    echo "Not authorized.";
 }
 
 //  "DELETE FROM users WHERE `users`.`id` = 22"?

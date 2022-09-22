@@ -39,16 +39,63 @@ if( isset($_POST['create'])) {
     <title>Document</title>
 </head>
 <body>
-<div class="form">
-        <form action="password.php" method="post">
-        <label for="password">Old password</label>    
-        <input type="password" name="oldPassword" id="oldPassword" placeholder="******" required>
-        <span class="error"> <?php echo $password_err;?></span><br>
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="../view/welcome.php">PHP|Product Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        <label for="password">New Password</label>
-        <input type="password" name="password" id="password" placeholder="******" required><br>
-        <button type="submit" name="create">Update</button>
-        </form>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="../view/category.php">Category</a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link" href="../product/fetch.php">View Product</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="../product/add.php">Add Product</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="../view/settings.php">Settings</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="../view/logout.php">Logout</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+    </div>
+<div class="form">
+<form action="login.php" method="post" enctype="multipart/form-data" >
+   
+   <div class="container">
+       <div class="row">
+           <div class="col-sm-3">
+               <h1>Change Password</h1>
+               
+               <hr class="mb-3">
+               <label for="email">Old Password</label>    
+               <input class="form-control" type="password" name="oldPassword" id="oldPassword" placeholder="******" required><br>
+               <span class="error"><?php echo $password_err;?></span> 
+
+                <label for="password">New Password</label>
+                <input class="form-control" type="password" name="password" id="password" placeholder="******" required><br>
+                <hr class="mb-3">
+                <button class="btn btn-primary" type="submit" name="create" value="Update">login</button>
+              
+              
+           </div>
+       </div>
+   </div>
+
+</form>
     </div>
 
     <!-- Optional JavaScript -->

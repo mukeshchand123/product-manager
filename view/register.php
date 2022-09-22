@@ -73,14 +73,16 @@ if(isset($_POST['create'])){
 
     
     <title>User Registration</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
 </head>
 <body>
 
 
 <div>
-    <a href="register.php">Register</a>
-    <a href="login.php">Login</a><br>
+<div>
+        <?php require_once("nav1.php"); ?>
+    </div>
+    
 </div>
 
 <div>

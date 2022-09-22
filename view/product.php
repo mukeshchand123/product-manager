@@ -16,13 +16,9 @@ if(!isset($_SESSION['login']) || $_SESSION['login']!==true){
     <title>Document</title>
 </head>
 <body>
-<nav>  
-        <a href="category.php">Category</a>
-        <a href="../product/add.php">Add Product</a>
-        <a href="../product/fetch.php">View Product</a>
-        <a href="logout.php">Logout</a><br><br>
-    
-</nav>
+<div>
+  <?php require_once("nav3.php");?>
+</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

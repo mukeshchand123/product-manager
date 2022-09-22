@@ -17,10 +17,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login']!==true){
 </head>
 <body>
 <nav>
-        <a href="product.php">Product</a>
-        <a href="../category/add.php">Add Category</a>
-        <a href="../category/fetch.php">View Category</a>
-        <a href="logout.php">logout</a><br><br>
+<?php require_once("nav2.php"); ?>
     
 </nav>
 <!-- Optional JavaScript -->

@@ -59,20 +59,34 @@ if(isset($_POST['create'])){
     <title>Product_Manager|Login</title>
 </head>
 <body>
-    <nav>
-        <a href="register.php">Register</a>
-        <a href="login.php">Login</a><br>
-    </nav>
-    <div class="form">
-        <form action="login.php" method="post">
-        <label for="email">Email</label>    
-        <input type="email" name="email" id="email" placeholder="Something@gmail.com" required><br>
-
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="******" required><br>
-        <button type="submit" name="create">login</button>
-        </form>
+    <div>
+        <?php require_once("nav1.php"); ?>
     </div>
+    <div>
+    <form action="login.php" method="post" enctype="multipart/form-data" >
+   
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h1>Login</h1>
+                    
+                    <hr class="mb-3">
+                    <label for="email">Email</label>    
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Something@gmail.com" required><br>
+
+                     <label for="password">Password</label>
+                     <input class="form-control" type="password" name="password" id="password" placeholder="******" required><br>
+                     <hr class="mb-3">
+                     <button class="btn btn-primary" type="submit" name="create" value="login">login</button>
+                   
+                   
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
 
     <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -81,3 +95,4 @@ if(isset($_POST['create'])){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+

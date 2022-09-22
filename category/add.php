@@ -33,11 +33,7 @@ if(isset($_POST['create'])){
 </head>
 <body>
 <div>
-         <a href="../view/category.php">Category</a>
-         <a href="../view/product.php">Product</a>
-         <a href="add.php">Add Category</a>
-         <a href="fetch.php">View Category</a>
-         <a href="../view/logout.php">Logout</a><br><br>
+       <?php require_once("../view/nav2.php"); ?>
     </div>
 
 <form action='add.php' method="post" enctype="multipart/form-data" >

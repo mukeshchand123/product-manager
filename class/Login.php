@@ -8,8 +8,9 @@ class login {
      $obj = new Operation();
   
      $result = $obj->getData('users','*',['email'=>$email]);
-  
-    
+      
+     
+   
      $num_rows = $result->rowCount();
    
      if($num_rows > 0){
