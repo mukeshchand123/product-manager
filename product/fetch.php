@@ -6,9 +6,21 @@
   }
 //  require_once('query.php');
   require_once('../class/Operation.php');
+$name = "";
+  $flag = 1;
   $id = $_SESSION['id'];
   $obj = new operation();
 $result = $obj->getData('product','*',['userid'=>$id]);
+
+if($_SERVER ['REQUEST_METHOD'] == 'POST'){
+
+    $name = $_POST['dropdown'];
+    $flag = 0;
+   // echo $name;
+    
+   
+
+}
 
 
 ?>
@@ -32,6 +44,23 @@ $result = $obj->getData('product','*',['userid'=>$id]);
 <div>
 <?php require_once("../view/nav3.php"); ?>
 </div>
+<div class="container">
+    <!-- product according to category -->
+    <form action="fetch.php" method="post">
+    <label for="productCategory">Product Category</label>
+                  <select name = "dropdown" required>
+                    <!-- <?php //while ($row = $result->fetch(PDO::FETCH_ASSOC)) {?> -->
+                       <?php $res = $obj->getData('category','*',['userid'=>$id]);
+                            while ($row1 = $res->fetch(PDO::FETCH_ASSOC)){
+                       ?>
+                        <option value = "<?php echo $row1['name']?>" selected><?php echo $row1['name']?></option>
+                    <?php } ?>
+                    <input class=" btn-primary" type="submit" name="create" value="Select">
+                   
+                  </select><br><br>
+
+    </form>
+</div>
 <div>
 
     <table align="center" border="1px" width="800px">
@@ -51,7 +80,7 @@ $result = $obj->getData('product','*',['userid'=>$id]);
     while($row=$result->fetch(PDO::FETCH_ASSOC)){
         $res =  $obj->getData('category','*',['id'=>$row['category']]);
         $row1 = $res->fetch(PDO::FETCH_ASSOC);
-
+        if($flag == 1 || $name == $row1['name']){
         echo"
         <tr>
             <td>".$row['id']."</td>
@@ -65,7 +94,7 @@ $result = $obj->getData('product','*',['userid'=>$id]);
         </tr> ";         
             
 
-     }
+     }}
      ?>
 </tablw>
 </div>
